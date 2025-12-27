@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Song</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-stone-100 min-h-screen flex items-center justify-center text-center px-6 flex-col">
+
+    <div id="paper"
+     class="fixed inset-0 bg-[#FAF7F3] z-50
+            translate-x-full transition-transform duration-700 ease-in-out pointer-events-none">
+</div>
+
+  <div>
+    <h1 class="mb-6">🎵 This song reminds me of you and I play this when I miss you.</h1>
+
+    <a href="https://open.spotify.com/track/3AJwUDP919kvQ9QcozQPxg"
+       target="_blank"
+       class="border px-8 py-3 rounded-full hover:bg-black hover:text-white transition mt-5 inline-block">
+      Listen
+    </a>
+
+    <button onclick="goTo('mylove.html')"
+  class="fixed top-6 left-6 border px-5 py-2 rounded-full bg-white/80 backdrop-blur hover:bg-black hover:text-white transition">
+    ← Back Home
+</button>
+  </div>
+
+  <script>
+  function goTo(url) {
+    const paper = document.getElementById('paper');
+    if (!paper) {
+      window.location.href = url;
+      return;
+    }
+
+    paper.classList.remove('translate-x-full');
+    paper.classList.add('translate-x-0');
+
+    setTimeout(() => {
+      window.location.href = url;
+    }, 650);
+  }
+
+ 
+  window.addEventListener('pageshow', () => {
+    const paper = document.getElementById('paper');
+    if (paper) {
+      paper.classList.add('translate-x-full');
+      paper.classList.remove('translate-x-0');
+    }
+  });
+</script>
+
+  <footer class="mt-24 text-center text-sm text-stone-500">
+    <p>
+        Anything for my one and only love. -Russel
+    </p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Letter</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Playfair Display'],
+            sans: ['Poppins']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-pink-50 min-h-screen flex items-center justify-center px-6 relative flex-col">
+
+    <div id="paper"
+     class="fixed inset-0 bg-[#FAF7F3] z-50
+            translate-x-full transition-transform duration-700 ease-in-out pointer-events-none">
+</div>
+
+  <button onclick="goTo('mylove.html')"
+  class="fixed top-6 left-6 border px-5 py-2 rounded-full bg-white/80 backdrop-blur hover:bg-black hover:text-white transition">
+    ← Back Home
+</button>
+
+  
+  <div id="envelopeScreen"
+       class="flex flex-col items-center gap-6 cursor-pointer transition-all duration-700">
+
+    <div id="envelope"
+         class="text-7xl transition-transform duration-700 hover:scale-110 cursor-pointer">
+      ✉️
+    </div>
+
+    <p class="opacity-70 hover:scale-110 cursor-pointer">
+      Tap to open
+    </p>
+  </div>
+
+
+  <div id="letterContent"
+       class="hidden max-w-xl text-center space-y-6 opacity-0 translate-y-10 transition-all duration-700">
+
+    <p>
+      Hi love, baby, my pot.
+    </p>
+
+    <p>
+      Pasensya ka na if this is all I can give you for now. Im kind of in survival mode at the moment e. Let me make it up to you once all the things na need mabayaran is matapos na, you know what those are (patapos naman na sila hehe)
+    </p>
+
+    <p>
+      Merry Christmas, love! Thank you for everything. Lahat ng effort na ginagawa mo ay appreciated so much.
+    </p>
+
+    <p>
+      This year was tough for both of us, school, scheds, work, responsibilities, pero we made it right? and we will going to make it pa to the top (to the top?). One step at a time.
+    </p>
+
+    <p>
+      Lahat ng ginagawa mo, pag hihirap mo will be worth it in the right time. Dont feel jealous minsan sa mga nakikita mo sa socmeds, maybe some of the things you want aren't with you yet kasi baka di mo pa kaya mahandle? Baka may perfect timing for you and when it does, mas maaappreciate mo. Just remember, nasa "proseso" pa tayo okaiii?
+    </p>
+
+    <p>
+      Lastly, I don't want you to feel insecure around other people. Love you are pretty, beautiful, kind, charming, and sexy. I know naman na mahirap pigilan ang pagiging insecure kahit naman ako minsan hahahaha. But I want you to remember that in my eyes, you are the most beautiful woman, "no cap."
+    </p>
+
+    <p>
+      Minsan iniisip mo tumitingin ako sa ibang babae, pero wala akong ibang intention love okay? I notice people kasi observant akong tao. Love para sakin walang papantay sayo, and always remember, "sarado na mga mata ko sa ganon" (kaya wag mo na sana ma-mis-interpret yung ganon ko). That's all, merry christmas. I love you so much!
+    </p>
+
+
+    <p class="font-serif text-lg">
+      — always yours
+    </p>
+
+    <button id="foldBtn" class="mt-10 border px-6 py-3 rounded-full hover:bg-black hover:text-white transition">📩 Fold Letter</button>
+  </div>
+
+
+  <script>
+    const envelopeScreen = document.getElementById('envelopeScreen');
+    const envelope = document.getElementById('envelope');
+    const letter = document.getElementById('letterContent');
+    const foldBtn = document.getElementById('foldBtn');
+
+    envelopeScreen.addEventListener('click', () => {
+
+      envelope.classList.add('scale-125', 'rotate-12');
+
+    
+      setTimeout(() => {
+        envelopeScreen.classList.add('opacity-0');
+      }, 400);
+
+ 
+      setTimeout(() => {
+        envelopeScreen.classList.add('hidden');
+        letter.classList.remove('hidden');
+
+        setTimeout(() => {
+          letter.classList.remove('opacity-0', 'translate-y-10');
+        }, 50);
+      }, 800);
+    });
+
+    foldBtn.addEventListener('click', () => {
+        letter.classList.add('opacity-0', 'trans;ate-y-10');
+
+        setTimeout(() => {
+            letter.classList.add('hidden');
+
+            envelope.classList.remove('scale-125', 'rotate-12');
+            
+            envelopeScreen.classList.remove('hidden');
+
+            requestAnimationFrame(() => {
+                envelopeScreen.classList.remove('opacity-0');
+            });
+        }, 700);
+    });
+
+    function goTo(url) {
+    const paper = document.getElementById('paper');
+    if (!paper) {
+      window.location.href = url;
+      return;
+    }
+
+    paper.classList.remove('translate-x-full');
+    paper.classList.add('translate-x-0');
+
+    setTimeout(() => {
+      window.location.href = url;
+    }, 650);
+  }
+
+  
+  window.addEventListener('pageshow', () => {
+    const paper = document.getElementById('paper');
+    if (paper) {
+      paper.classList.add('translate-x-full');
+      paper.classList.remove('translate-x-0');
+    }
+  });
+  </script>
+
+<footer class="mt-24 text-center text-sm text-stone-500">
+    <p>
+        Anything for my one and only love. -Russel
+    </p>
+</footer>
+
+</body>
+</html>

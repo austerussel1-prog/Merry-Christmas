@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>A Soft Place for You</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Playfair Display'],
+            sans: ['Poppins']
+          },
+          colors: {
+            blush: '#F6E6EC',
+            cream: '#F2F0EB'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-gradient-to-b from-blush to-cream min-h-screen flex items-center justify-center flex-col duration-700">
+
+    <div id="paper" class="fixed inset-0 bg-[#FAF7F3] z-50
+            translate-x-full transition-transform duration-700 ease-in-out">
+    </div>
+
+  <main class="text-center px-6">
+    <h1 class="font-serif text-4xl md:text-5xl mb-4">
+      Merry Christmas, A Soft Place for You
+    </h1>
+
+    <p class="mb-10 opacity-70">
+      I made this little space just for you.
+    </p>
+
+    <!-- BUTTONS -->
+    <button
+  onclick="goTo('foryou.html')"
+  class="block mx-auto border px-10 py-3 rounded-full
+         hover:bg-black hover:text-white transition w-64 mt-3">
+  💌 Letter
+</button>
+
+<button
+  onclick="goTo('reason.html')"
+  class="block mx-auto border px-10 py-3 rounded-full
+         hover:bg-black hover:text-white transition w-64 mt-3">
+  🌼 Reasons
+</button>
+
+<button
+  onclick="goTo('song.html')"
+  class="block mx-auto border px-10 py-3 rounded-full
+         hover:bg-black hover:text-white transition w-64 mt-3">
+  🎵 Song
+</button>
+
+      
+  </main>
+  <script>
+  function goTo(url) {
+    const paper = document.getElementById('paper');
+
+
+    paper.classList.remove('translate-x-full');
+    paper.classList.add('translate-x-0');
+
+
+    setTimeout(() => {
+      window.location.href = url;
+    }, 650);
+  }
+
+
+  window.addEventListener('pageshow', () => {
+    const paper = document.getElementById('paper');
+    paper.classList.add('translate-x-full');
+    paper.classList.remove('translate-x-0');
+  });
+</script>
+
+  <footer class="mt-24 text-center text-sm text-stone-500">
+    <p>
+        Anything for my one and only love. -Russel
+    </p>
+</footer>
+
+</body>
+</html>

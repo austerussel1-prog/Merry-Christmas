@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reasons</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .card {
+      perspective: 1200px;
+    }
+    .card-inner {
+      transform-style: preserve-3d;
+      transition: transform 0.8s;
+    }
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+    .card-front,
+    .card-back {
+      backface-visibility: hidden;
+    }
+    .card-back {
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-b from-pink-50 to-stone-100 min-h-screen px-6 py-16 flex-col">
+
+    <div id="paper"
+     class="fixed inset-0 bg-[#FAF7F3] z-50
+            translate-x-full transition-transform duration-700 ease-in-out pointer-events-none">
+</div>
+
+  <button onclick="goTo('mylove.html')"
+  class="fixed top-6 left-6 border px-5 py-2 rounded-full bg-white/80 backdrop-blur hover:bg-black hover:text-white transition">
+    ← Back Home
+</button>
+
+  <main class="max-w-5xl mx-auto text-center">
+    <h1 class="text-4xl font-serif mb-4">
+      The Reasons Why I Love You
+    </h1>
+    <p class="opacity-70 mb-14">
+      17 images with seventeen reasons why.
+    </p>
+
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+
+   
+      <div class="card cursor-pointer" onclick="this.classList.toggle('flipped')">
+        <div class="card-inner relative w-full h-80 rounded-2xl shadow-lg">
+
+      
+          <div class="card-front absolute inset-0">
+            <img src="youandi/sideviewred.jpg"
+                 class="w-full h-full object-cover rounded-2xl" />
+          </div>
+
+      
+          <div class="card-back absolute inset-0 bg-white rounded-2xl flex items-center justify-center p-6">
+            <p class="text-lg">
+              Not just how you look, but the way your presence makes everything feel lighter.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="card cursor-pointer" onclick="this.classList.toggle('flipped')">
+        <div class="card-inner relative w-full h-80 rounded-2xl shadow-lg">
+
+      
+          <div class="card-front absolute inset-0">
+            <img src="youandi/closeuplook.jpg"
+                 class="w-full h-full object-cover rounded-2xl" />
+          </div>
+
+      
+          <div class="card-back absolute inset-0 bg-white rounded-2xl flex items-center justify-center p-6">
+            <p class="text-lg">
+              Your smile can instantly turn my bad days into good ones.
+            </p>
+          </div>
+
+        </div>
+      </div>
+      
+      <div class="card cursor-pointer" onclick="this.classList.toggle('flipped')">
+        <div class="card-inner relative w-full h-80 rounded-2xl shadow-lg">
+          <div class="card-front absolute inset-0">
+            <img src="youandi/binondodrink.jpg"
+                 class="w-full h-full object-cover rounded-2xl" />
+          </div>
+          <div class="card-back absolute inset-0 bg-white rounded-2xl flex items-center justify-center p-6">
+            <p class="text-lg">
+              There’s something in your eyes that feels calm, warm, and safe.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card cursor-pointer" onclick="this.classList.toggle('flipped')">
+        <div class="card-inner relative w-full h-80 rounded-2xl shadow-lg">
+
+      
+          <div class="card-front absolute inset-0">
+            <img src="youandi/anurse.jpg"
+                 class="w-full h-full object-cover rounded-2xl" />
+          </div>
+
+      
+          <div class="card-back absolute inset-0 bg-white rounded-2xl flex items-center justify-center p-6">
+            <p class="text-lg">
+              I admire how you keep pushing forward, even when things get tough.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    
+      <div class="card cursor-pointer" onclick="this.classList.toggle('flipped')">
+        <div class="card-inner relative w-full h-80 rounded-2xl shadow-lg">
+          <div class="card-front absolute inset-0">
+            <img src="youandi/vcsmile.jpg"
+                 class="w-full h-full object-cover rounded-2xl" />
+          </div>
+          <div class="card-back absolute inset-0 bg-white rounded-2xl flex items-center justify-center p-6">
+            <p class="text-lg">
+              Seeing you happy makes my heart feel full.
+            </p>
+          </div>
+        </div>
+      </div>
+
+   
+      <div class="card cursor-pointer" onclick="this.classList.toggle('flipped')">
+        <div class="card-inner relative w-full h-80 rounded-2xl shadow-lg">
+          <div class="card-front absolute inset-0">
+            <img src="youandi/bowling.jpg"
+                 class="w-full h-full object-cover rounded-2xl" />
+          </div>
+          <div class="card-back absolute inset-0 bg-white rounded-2xl flex items-center justify-center p-6">
+            <p class="text-lg">
+              You make me laugh in ways no one else can.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card cursor-pointer" onclick="this.classList.toggle('flipped')">
+        <div class="card-inner relative w-full h-80 rounded-2xl shadow-lg">
+          <div class="card-front absolute inset-0">
+            <img src="youandi/weeatingicecream.jpg"
+                 class="w-full h-full object-cover rounded-2xl" />
+          </div>
+          <div class="card-back absolute inset-0 bg-white rounded-2xl flex items-center justify-center p-6">
+            <p class="text-lg">
+              When I feel weak or lost, ikaw yung nagbibigay lakas sa akin.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card cursor-pointer" onclick="this.classList.toggle('flipped')">
+        <div class="card-inner relative w-full h-80 rounded-2xl shadow-lg">
+          <div class="card-front absolute inset-0">
+            <img src="youandi/yabu.jpg"
+                 class="w-full h-full object-cover rounded-2xl" />
+          </div>
+          <div class="card-back absolute inset-0 bg-white rounded-2xl flex items-center justify-center p-6">
+            <p class="text-lg">
+              It’s the little things you do that make me fall even more.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card cursor-pointer" onclick="this.classList.toggle('flipped')">
+        <div class="card-inner relative w-full h-80 rounded-2xl shadow-lg">
+          <div class="card-front absolute inset-0">
+            <img src="youandi/tirednurse.jpg"
+                 class="w-full h-full object-cover rounded-2xl" />
+          </div>
+          <div class="card-back absolute inset-0 bg-white rounded-2xl flex items-center justify-center p-6">
+            <p class="text-lg">
+              Even pagod ka na, you're still on it and I admire that so much.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card cursor-pointer" onclick="this.classList.toggle('flipped')">
+        <div class="card-inner relative w-full h-80 rounded-2xl shadow-lg">
+          <div class="card-front absolute inset-0">
+            <img src="youandi/skincare.jpg"
+                 class="w-full h-full object-cover rounded-2xl" />
+          </div>
+          <div class="card-back absolute inset-0 bg-white rounded-2xl flex items-center justify-center p-6">
+            <p class="text-lg">
+              Caring.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card cursor-pointer" onclick="this.classList.toggle('flipped')">
+        <div class="card-inner relative w-full h-80 rounded-2xl shadow-lg">
+          <div class="card-front absolute inset-0">
+            <img src="youandi/youinadress.jpg"
+                 class="w-full h-full object-cover rounded-2xl" />
+          </div>
+          <div class="card-back absolute inset-0 bg-white rounded-2xl flex items-center justify-center p-6">
+            <p class="text-lg">
+              I love your sense of style and how you express yourself.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card cursor-pointer" onclick="this.classList.toggle('flipped')">
+        <div class="card-inner relative w-full h-80 rounded-2xl shadow-lg">
+          <div class="card-front absolute inset-0">
+            <img src="youandi/youinahelmet.jpg"
+                 class="w-full h-full object-cover rounded-2xl" />
+          </div>
+          <div class="card-back absolute inset-0 bg-white rounded-2xl flex items-center justify-center p-6">
+            <p class="text-lg">
+              You were there for me even when I had nothing, and that means everything to me.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card cursor-pointer" onclick="this.classList.toggle('flipped')">
+        <div class="card-inner relative w-full h-80 rounded-2xl shadow-lg">
+          <div class="card-front absolute inset-0">
+            <img src="youandi/redblurryimage.jpg"
+                 class="w-full h-full object-cover rounded-2xl" />
+          </div>
+          <div class="card-back absolute inset-0 bg-white rounded-2xl flex items-center justify-center p-6">
+            <p class="text-lg">
+              Your kindness and heart make you even more beautiful.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card cursor-pointer" onclick="this.classList.toggle('flipped')">
+        <div class="card-inner relative w-full h-80 rounded-2xl shadow-lg">
+          <div class="card-front absolute inset-0">
+            <img src="youandi/massage.jpg"
+                 class="w-full h-full object-cover rounded-2xl" />
+          </div>
+          <div class="card-back absolute inset-0 bg-white rounded-2xl flex items-center justify-center p-6">
+            <p class="text-lg">
+                How you take care of me and those around you.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card cursor-pointer" onclick="this.classList.toggle('flipped')">
+        <div class="card-inner relative w-full h-80 rounded-2xl shadow-lg">
+          <div class="card-front absolute inset-0">
+            <img src="youandi/kmartdate.jpg"
+                 class="w-full h-full object-cover rounded-2xl" />
+          </div>
+          <div class="card-back absolute inset-0 bg-white rounded-2xl flex items-center justify-center p-6">
+            <p class="text-lg">
+              You give love, effort, and care without asking for anything in return (we??? hahaha).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card cursor-pointer" onclick="this.classList.toggle('flipped')">
+        <div class="card-inner relative w-full h-80 rounded-2xl shadow-lg">
+          <div class="card-front absolute inset-0">
+            <img src="youandi/intheriver.jpg"
+                 class="w-full h-full object-cover rounded-2xl" />
+          </div>
+          <div class="card-back absolute inset-0 bg-white rounded-2xl flex items-center justify-center p-6">
+            <p class="text-lg">
+              Unforgettable moments, pero hindi na mauulit master.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card cursor-pointer" onclick="this.classList.toggle('flipped')">
+        <div class="card-inner relative w-full h-80 rounded-2xl shadow-lg">
+          <div class="card-front absolute inset-0">
+            <img src="youandi/cheeks.jpg"
+                 class="w-full h-full object-cover rounded-2xl" />
+          </div>
+          <div class="card-back absolute inset-0 bg-white rounded-2xl flex items-center justify-center p-6">
+            <p class="text-lg">
+             I love how strong and independent you are, and how you still choose to share your life with me.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-center">
+  <button onclick="goTo('flowers.html')"
+    class="w-full h-80 rounded-2xl shadow-lg hover:bg-black hover:text-white transition">
+    At dahil dyan, eto ang sayo!
+  </button>
+</div>
+
+    </div>
+  </main>
+
+  <script>
+  function goTo(url) {
+    const paper = document.getElementById('paper');
+    if (!paper) {
+      window.location.href = url;
+      return;
+    }
+
+    paper.classList.remove('translate-x-full');
+    paper.classList.add('translate-x-0');
+
+    setTimeout(() => {
+      window.location.href = url;
+    }, 650);
+  }
+
+ 
+  window.addEventListener('pageshow', () => {
+    const paper = document.getElementById('paper');
+    if (paper) {
+      paper.classList.add('translate-x-full');
+      paper.classList.remove('translate-x-0');
+    }
+  });
+</script>
+
+  <footer class="mt-24 text-center text-sm text-stone-500">
+    <p>
+        Anything for my one and only love. -Russel
+    </p>
+</footer>
+
+</body>
+</html>

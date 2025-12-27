@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cinematic Rose Bouquet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --bg-color: #050505;
+            --stem-color: #2d4c1e;
+            --leaf-color: #3a5f25;
+            --rose-red: #9e1b22;
+            --rose-pink: #d46a7e;
+            --glow: rgba(255, 50, 80, 0.4);
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            background: radial-gradient(circle at center, #1a0a0a 0%, var(--bg-color) 100%);
+            overflow: hidden;
+        }
+
+        .garden {
+            position: relative;
+            width: 400px;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* --- THE STEM --- */
+        .stem {
+            position: absolute;
+            bottom: 0;
+            width: 6px;
+            background: linear-gradient(to top, #1a3300, var(--stem-color));
+            border-radius: 5px;
+            transform-origin: bottom;
+            animation: grow-stem 3s ease-out forwards;
+        }
+
+        @keyframes grow-stem {
+            0% { height: 0; }
+            100% { height: 350px; }
+        }
+
+        /* --- THE ROSE HEAD --- */
+        .rose-head {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            animation: bloom 2s 2.5s ease-out forwards;
+        }
+
+        @keyframes bloom {
+            0% { transform: translateX(-50%) scale(0); opacity: 0; }
+            100% { transform: translateX(-50%) scale(1.2); opacity: 1; }
+        }
+
+        /* Petal Styling */
+        .petal {
+            position: absolute;
+            width: 50px;
+            height: 70px;
+            background: var(--rose-red);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5), 0 0 15px var(--glow);
+            transform-origin: bottom center;
+        }
+
+        /* Spiraling Petals */
+        .p1 { transform: rotate(0deg); background: var(--rose-red); }
+        .p2 { transform: rotate(72deg); background: #b12128; }
+        .p3 { transform: rotate(144deg); background: var(--rose-red); }
+        .p4 { transform: rotate(216deg); background: #8a171d; }
+        .p5 { transform: rotate(288deg); background: var(--rose-red); }
+        .center { 
+            width: 30px; height: 30px; top: 20px; left: 10px; 
+            background: #ff4d6d; border-radius: 50%; z-index: 10;
+        }
+
+        /* --- LEAVES --- */
+        .leaf {
+            position: absolute;
+            width: 30px;
+            height: 50px;
+            background: var(--leaf-color);
+            border-radius: 0 100% 0 100%;
+            opacity: 0;
+            animation: leaf-pop 1s 1.5s ease-out forwards;
+        }
+
+        .leaf.left { left: -25px; transform: rotate(-45deg); }
+        .leaf.right { right: -25px; transform: rotate(45deg); border-radius: 100% 0 100% 0; }
+
+        @keyframes leaf-pop {
+            0% { opacity: 0; transform: scale(0) rotate(-45deg); }
+            100% { opacity: 1; transform: scale(1) rotate(-45deg); }
+        }
+
+        /* --- SPARKLES --- */
+        .sparkles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .dot {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float 4s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-100px) translateX(20px); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="paper"
+     class="fixed inset-0 bg-[#FAF7F3] z-50
+            translate-x-full transition-transform duration-700 ease-in-out pointer-events-none">
+</div>
+
+    <button onclick="goTo('reason.html')"
+        class="fixed top-6 left-6 border px-5 py-2 rounded-full bg-white/80 backdrop-blur hover:bg-black hover:text-white transition">
+        ← Back
+    </button>
+
+    <div class="garden" id="garden">
+        </div>
+
+    <script>
+
+        function goTo(url) {
+    const paper = document.getElementById('paper');
+    if (!paper) {
+      window.location.href = url;
+      return;
+    }
+
+    paper.classList.remove('translate-x-full');
+    paper.classList.add('translate-x-0');
+
+    setTimeout(() => {
+      window.location.href = url;
+    }, 650);
+  }
+
+        function createRose(xOffset, height, color, delay) {
+            const container = document.createElement('div');
+            container.style.position = 'absolute';
+            container.style.left = `calc(50% + ${xOffset}px)`;
+            container.style.bottom = '0';
+            
+            const stem = document.createElement('div');
+            stem.className = 'stem';
+            stem.style.height = height + 'px';
+            stem.style.animationDelay = delay + 's';
+            stem.style.backgroundColor = `hsl(100, 40%, ${20 + Math.random()*10}%)`;
+
+            const head = document.createElement('div');
+            head.className = 'rose-head';
+            head.style.animationDelay = (delay + 1.5) + 's';
+
+            // Create 5 petals
+            for(let i=1; i<=5; i++) {
+                const p = document.createElement('div');
+                p.className = `petal p${i}`;
+                p.style.backgroundColor = color;
+                head.appendChild(p);
+            }
+            const center = document.createElement('div');
+            center.className = 'petal center';
+            head.appendChild(center);
+
+            // Add leaves
+            for(let i=0; i<2; i++) {
+                const leaf = document.createElement('div');
+                leaf.className = i === 0 ? 'leaf left' : 'leaf right';
+                leaf.style.bottom = (height * 0.4) + (i * 40) + 'px';
+                leaf.style.animationDelay = (delay + 1) + 's';
+                stem.appendChild(leaf);
+            }
+
+            stem.appendChild(head);
+            container.appendChild(stem);
+            document.getElementById('garden').appendChild(container);
+        }
+
+        // Create the Bouquet
+        createRose(0, 350, '#9e1b22', 0);    // Center Red
+        createRose(-60, 280, '#d46a7e', 0.5); // Left Pink
+        createRose(60, 300, '#d46a7e', 1);   // Right Pink
+        createRose(-110, 220, '#800e13', 1.5); // Far Left Dark
+        createRose(110, 240, '#ff4d6d', 2);   // Far Right Bright
+
+        // Generate Sparkles
+        for (let i = 0; i < 30; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'dot';
+            const size = Math.random() * 4 + 2;
+            dot.style.width = size + 'px';
+            dot.style.height = size + 'px';
+            dot.style.left = Math.random() * 100 + '%';
+            dot.style.top = Math.random() * 100 + '%';
+            dot.style.animationDelay = Math.random() * 5 + 's';
+            dot.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            document.body.appendChild(dot);
+        }
+    </script>
+</body>
+</html>
